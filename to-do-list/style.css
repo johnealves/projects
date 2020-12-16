@@ -29,7 +29,7 @@ P {
 
 .texto-tarefa {
   margin-bottom: 15px;
-  width: 90%;
+  width: 60%;
 }
 
 button {
@@ -45,9 +45,11 @@ button.criar-tarefa {
 }
 
 button#remover-selecionado {
+  font-weight: bolder;
+  font-size: 17px;
   background-color: rgb(221, 12, 12);
   color: white;
-  padding: 4px 7px;
+  padding: 3px 7px;
   border-radius: 50px;
 }
 
@@ -55,14 +57,13 @@ button#apaga-tudo {
   background-color: rgb(221, 12, 12);
   color: white;
   padding: 4px 10px;
+  border-radius: 50px;
 }
 
 button.up-down {
-  font-weight: bolder;
-  font-size: 20px;
   background-color: rgb(0, 140, 255);
   color: white;
-  padding: 2px 8px;
+  padding: 4px 10px;
   border-radius: 50px;
 }
 
@@ -74,6 +75,6 @@ button.up-down {
   text-align: left;
 }
 
-.completed {
-  text-decoration: line-through;
+.completed::after {
+  content: " ✔️  ";
 }

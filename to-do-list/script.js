@@ -16,7 +16,9 @@ function saveStorage() {
   const line = document.querySelectorAll('.item-list');
   for (let index = 0; index < line.length; index += 1) {
     localStorage.setItem(`tarefas${index}`, line[index].innerHTML);
-    localStorage.setItem(`addClass${index}`, line[index].className);
+    // if (line[index].classList.contains('completed')) {
+    // }
+      localStorage.setItem(`addClass${index}`, line[index].className);
   }
   localStorage.setItem('numero de tarefas', (line.length));
   localStorage.setItem('tarefas', (storage));
@@ -70,12 +72,17 @@ function backgroundItemlist() {
     }
     event.target.style.textDecoration = 'underline';
     event.target.className += ' selected';
+    saveStorage()
   });
   fullList.addEventListener('dblclick', function (event) {
+    let check = '&#9989;';
     event.target.classList.toggle('completed');
+    saveStorage()
   });
 }
 backgroundItemlist();
+
+
 
 function erasedAll() {
   const eraserButton = document.getElementById('apaga-tudo');
