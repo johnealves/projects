@@ -62,9 +62,9 @@ function backgroundItemlist() {
     }
     for (let index = 0; index < listOfItem.length; index += 1) {
       listOfItem[index].classList.remove('selected');
-      listOfItem[index].style.textDecoration = 'none';
+      listOfItem[index].style.color = 'black';
     }
-    event.target.style.textDecoration = 'underline';
+    event.target.style.color = 'green';
     event.target.className += ' selected';
     saveStorage()
   });

@@ -61,7 +61,7 @@ button#remover-selecionado {
 button#apaga-tudo {
   background-color: rgb(221, 12, 12);
   color: white;
-  margin-left: 250px;
+  margin-left: 200px;
 }
 
 button.up-down {
@@ -80,9 +80,11 @@ ul {
 }
 
 .item-list {
+  line-height: 23px;
   text-align: left;
+  user-select: none;
 }
 
 .completed::after {
-  content: " ✔️  ";
+  content: " ✔️ ";
 }
