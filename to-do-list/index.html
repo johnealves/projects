@@ -7,19 +7,20 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="main-content">
     <header>
       <h1>Minha Lista de Tarefas</h1>
+      <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
     </header>
-    <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
-    <input type="text" name="texto-tarefa" id="texto-tarefa" placeholder="Digite a nova tarefa...">
-    <button id="criar-tarefa">Criar tarefa</button>
-    <ol id="lista-tarefas"></ol>
+    <input type="text" name="texto-tarefa" id="texto-tarefa" class='texto-tarefa' placeholder="Digite uma nova tarefa..."><br>
+    <button id="remover-selecionado">X</button>
+    <button id="criar-tarefa" class="criar-tarefa">Criar tarefa</button>
+    <button id="mover-cima" class="up-down">&uarr;</button>
+    <button id="mover-baixo" class="up-down">&darr;</button>
+    
     <button type="submit" id='apaga-tudo'>Apaga tudo</button>
-    <button id="mover-cima">Mover para cima</button>
-    <button id="mover-baixo">Mover para baixo</button>
-    <button id="remover-selecionado">Remover item selecionado</button>
-    <button type="submit" id='remover-finalizados'>remover-finalizados</button>
-    <button type="submit" id='salvar-tarefas'>Salvar tarefas</button>
+    <ul id="lista-tarefas"></ul>
+  </div>  
   <script src="script.js"></script>
 </body>
 </html>

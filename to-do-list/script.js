@@ -22,11 +22,11 @@ function saveStorage() {
   localStorage.setItem('tarefas', (storage));
 }
 
-function saveAll() {
-  const saveButton = document.querySelector('#salvar-tarefas');
-  saveButton.addEventListener('click', saveStorage);
-}
-saveAll();
+// function saveAll() {
+//   const saveButton = document.querySelector('#salvar-tarefas');
+//   saveButton.addEventListener('click', saveStorage);
+// }
+// saveAll();
 
 function newTask() {
   const list = document.querySelector('#lista-tarefas');
@@ -36,12 +36,19 @@ function newTask() {
   newli.innerText = mt.value;
   list.appendChild(newli);
   mt.value = '';
+  saveStorage()
 }
 
 function makeTask() {
   const button = document.getElementById('criar-tarefa');
-  button.addEventListener('click', newTask);
   const inputText = document.getElementById('texto-tarefa');
+  button.addEventListener('click', function() {
+    if (inputText.value !== "") {
+      newTask();
+    } else {
+      alert('Digite uma tarefa para adicionar.')
+    }
+  }); 
   inputText.addEventListener('keyup', function () {
     if (event.keyCode === 13) {
       newTask();
@@ -59,9 +66,9 @@ function backgroundItemlist() {
     }
     for (let index = 0; index < listOfItem.length; index += 1) {
       listOfItem[index].classList.remove('selected');
-      listOfItem[index].style.background = 'none';
+      listOfItem[index].style.textDecoration = 'none';
     }
-    event.target.style.background = 'rgb(128,128,128)';
+    event.target.style.textDecoration = 'underline';
     event.target.className += ' selected';
   });
   fullList.addEventListener('dblclick', function (event) {
@@ -72,30 +79,19 @@ backgroundItemlist();
 
 function erasedAll() {
   const eraserButton = document.getElementById('apaga-tudo');
+  const listOfItem = document.querySelector('#lista-tarefas');
+  const line = document.querySelectorAll('.item-list');
   eraserButton.addEventListener('click', function () {
-    const listOfItem = document.querySelector('#lista-tarefas');
-    const line = document.querySelectorAll('.item-list');
-    for (let index = 0; index < line.length; index += 1) {
-      listOfItem.removeChild(line[index]);
+  let itensSelected = 0;
+    if (confirm('Você está prestes a excluir todas a tarefas, tem certeza que quer fazer isso?') === true) {
+      for (let index = 0; index < line.length; index += 1) {
+        listOfItem.removeChild(line[index]);
+      }
+      saveStorage()
     }
   });
 }
 erasedAll();
-
-function erasedCompleted() {
-  const eraserButton = document.getElementById('remover-finalizados');
-  eraserButton.addEventListener('click', function () {
-    const listOfItem = document.querySelector('#lista-tarefas');
-    const line = document.querySelectorAll('.item-list');
-    for (let index = 0; index < line.length; index += 1) {
-      if (line[index].classList.contains('completed')) {
-        listOfItem.removeChild(line[index]);
-      }
-    }
-  });
-}
-erasedCompleted();
-
 
 function buttonMoveTop() {
   const buttonTop = document.getElementById('mover-cima');
@@ -111,6 +107,8 @@ function buttonMoveTop() {
         }
       }
     }
+    saveStorage()
+    // randomBackgroundColor()
   });
 }
 buttonMoveTop();
@@ -129,20 +127,54 @@ function buttonMoveDown() {
         }
       }
     }
+    saveStorage()
+    // randomBackgroundColor();
   });
 }
 buttonMoveDown();
 
-function removerSelected() {
-  const buttonRemove = document.getElementById('remover-selecionado');
-  buttonRemove.addEventListener('click', function () {
-    const ol = document.querySelector('#lista-tarefas');
-    const listOfItem = document.querySelectorAll('.item-list');
-    for (let index = 0; index < listOfItem.length; index += 1) {
-      if (listOfItem[index].classList.contains('selected')) {
-        ol.removeChild(listOfItem[index]);
+function checkSelected() {
+  const eraserButton = document.getElementById('remover-selecionado');
+  eraserButton.addEventListener('click', function () {
+    const line = document.querySelectorAll('.item-list');
+    let itensSelected = 0;
+    for (let index = 0; index < line.length; index += 1) {
+      if (line[index].classList.contains('selected')) {
+        itensSelected += 1;
       }
     }
-  });
+    console.log(itensSelected)
+    if (itensSelected > 0) {
+      askConfirmRemove();
+    } else {
+      alert('Nenhum item selecionado')
+    }
+  })
 }
-removerSelected();
+checkSelected();
+
+function askConfirmRemove() {
+  if (confirm('Tem certeza que deseja remover o item selecionado') === true) {
+    removeItemSelected()
+  }
+}
+
+function removeItemSelected() {
+  const listOfItem = document.querySelector('#lista-tarefas');
+  const line = document.querySelectorAll('.item-list');
+  for (let index = 0; index < line.length; index += 1) {
+    if (line[index].classList.contains('selected')) {
+      listOfItem.removeChild(line[index]);
+    }
+  }
+  saveStorage();
+}
+
+function ramdonNumber(num) {
+  return Math.floor(Math.random() * num)
+}
+
+function randomBackgroundColor() {
+  document.body.style.backgroundColor = `rgb(${ramdonNumber(256)}, ${ramdonNumber(256)}, ${ramdonNumber(256)})`
+}
+
