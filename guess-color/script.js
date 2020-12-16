@@ -5,6 +5,7 @@ const ballsList = document.getElementById('balls-list');
 const btnReset = document.getElementById('reset-game');
 const btnResetScore = document.getElementById('reset-score');
 const score = document.getElementById('score');
+const game = document.querySelector('.game')
 let totalScore = 0;
 if (localStorage.getItem('Pontuação jogo descubra a cor JAF') === null) {
   score.innerHTML = 0;
@@ -32,33 +33,51 @@ function colorToGuess() {
 function checkAnswer() {
   ballsList.addEventListener('click', function (event) {
     if (event.target.style.background === rgbColorText.innerText) {
-      answer.innerHTML = 'Acertou!';
+      game.innerHTML = 'Resposta correta!<br>';
       totalScore += 3;
       localStorage.setItem('Pontuação jogo descubra a cor JAF', totalScore);
       score.innerHTML = totalScore;
+      const divAnswer = document.createElement('div');
+      divAnswer.className = 'ball';
+      divAnswer.style.background = rgbColorText.innerText;
+      game.appendChild(divAnswer);
+      game.innerHTML += `<br>${rgbColorText.innerText}<br>`;
+      const btnNextTurn = document.createElement('button')
+      btnNextTurn.innerHTML = 'Nova rodada';
+      btnNextTurn.id = 'reset-game'
+      game.appendChild(btnNextTurn)
+      btnNextTurn.addEventListener('click', function () {
+        window.location.reload();
+      })
     } else {
-      answer.innerHTML = 'Errou! Tente novamente!';
+      game.innerHTML = `Errou! pontuação final: ${localStorage.getItem('Pontuação jogo descubra a cor JAF')}<br>`;
+      const divAnswer = document.createElement('div');
+      divAnswer.className = 'ball';
+      divAnswer.style.background = rgbColorText.innerText;
+      game.appendChild(divAnswer);
+      game.innerHTML += `<br>${rgbColorText.innerText}<br>`;
+      const btnNewGame = document.createElement('button');
+      btnNewGame.innerHTML = 'Novo jogo';
+      game.appendChild(btnNewGame);
+      btnNewGame.addEventListener('click', function () {
+        resetSavedScore();
+      })
     }
   });
 }
 
 function resetReloadPage() {
-  btnReset.addEventListener('click', function () {
     window.location.reload();
-  });
 }
 
 function resetSavedScore() {
-  btnResetScore.addEventListener('click', function () {
     const initialScore = 0;
     localStorage.setItem('Pontuação jogo descubra a cor JAF', initialScore);
     window.location.reload();
-  });
 }
 
 // chamadas
 generateRandomColor();
 colorToGuess();
 checkAnswer();
-resetReloadPage();
-resetSavedScore();
+

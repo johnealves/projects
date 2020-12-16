@@ -7,22 +7,24 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1 id="title">Descubra a cor?</h1>
-    <p id="rgb-color">(168, 34, 1)</p>
-    <section id='balls-list'>
-      <div class="ball"></div>
-      <div class="ball"></div>
-      <div class="ball"></div>
-      <div class="ball"></div>
-      <div class="ball"></div>
-      <div class="ball"></div>
-    </section>
-    <div id="answer">Escolha uma cor!</div>
-    <div>
-      <span>Pontuação: </span><span id="score">0</span>
+    <div class="main-content">
+      <h1 id="title">Descubra a cor?</h1>
+      <div class="game">
+        <p id="rgb-color">(168, 34, 1)</p>
+        <section id="balls-list" class="ball-list">
+          <div class="ball"></div>
+          <div class="ball"></div>
+          <div class="ball"></div>
+          <div class="ball"></div>
+          <div class="ball"></div>
+          <div class="ball"></div>
+        </section>
+        <div id="answer">Escolha uma cor!</div>
+      </div>
+      <div class=div-score><span>Pontuação: </span><span id="score">0</span></div>
+      <!-- <button type="submit" id="reset-game">Nova rodada</button>
+      <button type="submit" id="reset-score">Zerar pontuação</button> -->
     </div>
-    <button type="submit" id="reset-game">Nova rodada</button>
-    <button type="submit" id="reset-score">Zerar pontuação</button>
     <script src="script.js"></script>
   </body>
 </html>
