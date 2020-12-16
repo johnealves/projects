@@ -34,41 +34,43 @@ P {
 
 button {
   border-radius: 10px;
-  font-size: 15px;
-  padding: 4px;
+  font-size: 17px;
+  padding: 4px 12px;
+  border-radius: 50px;
+  margin-left: 10px;
 }
 
 button.criar-tarefa {
   background-color: rgb(6, 126, 6);
+  border-radius: 50px;
   color: white;
-  padding: 4px 10px;
+  padding: 2px 12px;
+  margin-left: 10px;
 }
 
 button#remover-selecionado {
-  font-weight: bolder;
-  font-size: 17px;
   background-color: rgb(221, 12, 12);
   color: white;
-  padding: 3px 7px;
-  border-radius: 50px;
 }
 
 button#apaga-tudo {
   background-color: rgb(221, 12, 12);
   color: white;
-  padding: 4px 10px;
-  border-radius: 50px;
 }
 
 button.up-down {
   background-color: rgb(0, 140, 255);
   color: white;
-  padding: 4px 10px;
-  border-radius: 50px;
 }
 
 .list-content {
-  width: auto;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+ul {
+  width: 85%;
+  margin: auto;
 }
 
 .item-list {
