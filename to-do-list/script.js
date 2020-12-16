@@ -24,12 +24,6 @@ function saveStorage() {
   localStorage.setItem('tarefas', (storage));
 }
 
-// function saveAll() {
-//   const saveButton = document.querySelector('#salvar-tarefas');
-//   saveButton.addEventListener('click', saveStorage);
-// }
-// saveAll();
-
 function newTask() {
   const list = document.querySelector('#lista-tarefas');
   const mt = document.querySelector('#texto-tarefa');
@@ -82,20 +76,17 @@ function backgroundItemlist() {
 }
 backgroundItemlist();
 
-
-
 function erasedAll() {
   const eraserButton = document.getElementById('apaga-tudo');
-  const listOfItem = document.querySelector('#lista-tarefas');
-  const line = document.querySelectorAll('.item-list');
   eraserButton.addEventListener('click', function () {
-  let itensSelected = 0;
+    const listOfItem = document.querySelector('#lista-tarefas');
+    const line = document.querySelectorAll('.item-list');
     if (confirm('Você está prestes a excluir todas a tarefas, tem certeza que quer fazer isso?') === true) {
       for (let index = 0; index < line.length; index += 1) {
         listOfItem.removeChild(line[index]);
       }
-      saveStorage()
     }
+    saveStorage()
   });
 }
 erasedAll();
@@ -150,7 +141,6 @@ function checkSelected() {
         itensSelected += 1;
       }
     }
-    console.log(itensSelected)
     if (itensSelected > 0) {
       askConfirmRemove();
     } else {
