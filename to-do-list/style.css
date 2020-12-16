@@ -61,7 +61,6 @@ button#remover-selecionado {
 button#apaga-tudo {
   background-color: rgb(221, 12, 12);
   color: white;
-  margin-left: 200px;
 }
 
 button.up-down {
