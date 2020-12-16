@@ -32,6 +32,11 @@ P {
   width: 60%;
 }
 
+.button-content {
+  text-align: left;
+  margin-left: 25px;
+}
+
 button {
   border-radius: 10px;
   font-size: 17px;
@@ -56,6 +61,7 @@ button#remover-selecionado {
 button#apaga-tudo {
   background-color: rgb(221, 12, 12);
   color: white;
+  margin-left: 250px;
 }
 
 button.up-down {
