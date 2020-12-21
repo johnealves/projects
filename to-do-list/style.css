@@ -1,5 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 body {
   font-size: 20px;
+  font-family: 'Montserrat', sans-serif;
   background-color: rgb(27, 75, 63);
 }
 
@@ -7,6 +12,7 @@ body {
   background-color: rgb(253, 252, 169);
   border-radius: 20px;
   margin: auto;
+  margin-top: 3rem;
   max-width: 600px;
   padding: 10px;
   text-align: center;
@@ -17,12 +23,14 @@ header {
 }
 
 h1 {
+  font-family: 'Lobster', cursive;
   margin: 0px;
   margin-block: 0px;
 }
 
 P {
   color: rgb(105, 103, 101);
+  font-family: 'Lobster', cursive;
   margin-block: 0px;
 }
 
@@ -84,6 +92,7 @@ ul {
   line-height: 23px;
   text-align: left;
   user-select: none;
+  width: 100%;
 }
 
 .completed::after {
