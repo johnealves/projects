@@ -38,7 +38,7 @@
   flex-direction: column;
   height: auto;
   margin: 5px;
-  width: 200px;
+  width: 215px;
 }
 
 .item .item__sku {
@@ -51,7 +51,15 @@
   text-align: center;
 }
 
+.item .item__price {
+  font-size: 20px;
+  font-weight: 900;
+  padding: 10px;
+  text-align: center;
+}
+
 .item .item__image {
+  height: 200px;
   width: 100%;
 }
 
