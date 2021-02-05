@@ -11,3 +11,5 @@ Projetos realizados durante os estudos na trybe.
 4 - <a href="https://johnealves.github.io/projects/meme-generator/" target="_blank">Meme generator</a>
 
 5 - <a href="https://johnealves.github.io/projects/mistery-letter/" target="_blank">Mistery letter</a>
+
+6 - <a href="https://johnealves.github.io/projects/shopping-cart/" target="_blank">Shopping cart</a>
