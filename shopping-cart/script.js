@@ -43,6 +43,8 @@ function searchImageByID(id) {
 }
 
 function searchElements(element = 'computador') {
+  const items = document.querySelector('.items');
+  items.innerHTML = ' ';
   fetch(`https://api.mercadolibre.com/sites/MLB/search?q=${element}`)
   .then(response => response.json())
   .then(object => object.results)
@@ -125,7 +127,7 @@ function createCartItemElement({ sku, name, salePrice }) {
   const li = document.createElement('li');
   li.className = 'cart__item';
   li.id = sku;
-  li.innerText = `${name} | Preço: $${salePrice}`;
+  li.innerText = `${name} | Preço: R$ ${salePrice}`;
   // li.addEventListener('click', cartItemClickListener);
   return li;
 }
@@ -174,6 +176,16 @@ function setupEventListener() {
   cartList.addEventListener('click', cartItemClickListener);
   const buttonEmpytCart = document.querySelector('.empty-cart');
   buttonEmpytCart.addEventListener('click', empytCart);
+  const search = document.querySelector('#searchInput');
+  search.addEventListener('keyup', (event) => {
+    if (event.keyCode === 13) {
+      searchElements(search.value);
+    }
+  })
+  const searchButton = document.querySelector('#searchButton');
+  searchButton.addEventListener('click', () => {
+    searchElements(search.value);
+  })
 }
 
 

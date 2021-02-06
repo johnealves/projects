@@ -12,13 +12,16 @@
   <body>
     <header class="top-bar">
       <h1>Shopping Cart</h1>
-      <input type="search" name="" id="">
+      <div class="input-name-group mb-3">
+        <input type="search" name="" class='form-control' id="searchInput">
+        <button id="searchButton" class='btn btn-primary'>Pesquisar</button>
+      </div>
     </header>
     <section class="container">
       <section class="items"></section>
       <section class="cart">
         <span class="cart__title">Carrinho de compras</span>
-        <button class="empty-cart">Esvaziar carrinho</button>
+        <button class="empty-cart btn btn-secondary">Esvaziar carrinho</button>
         <ol class="cart__items"></ol>
         <span class="total-price">0</span>
       </section>
