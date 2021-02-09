@@ -42,7 +42,7 @@ function searchImageByID(id) {
   .catch(error => window.alert(error));
 }
 
-function searchElements(element = 'nootbook') {
+function searchElements(element = 'computador') {
   const items = document.querySelector('.items');
   items.innerHTML = ' ';
   fetch(`https://api.mercadolibre.com/sites/MLB/search?q=${element}`)
