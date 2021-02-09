@@ -42,7 +42,7 @@ function searchImageByID(id) {
   .catch(error => window.alert(error));
 }
 
-function searchElements(element = 'computador') {
+function searchElements(element = 'nootbook') {
   const items = document.querySelector('.items');
   items.innerHTML = ' ';
   fetch(`https://api.mercadolibre.com/sites/MLB/search?q=${element}`)
@@ -104,7 +104,7 @@ function sumPrices() {
     ids.forEach(async (value) => {
       const price = await searchPriceByID(value);
       totalPrice += price;
-      labelPrice.innerHTML = `${totalPrice.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}`;
+      labelPrice.innerHTML = `TOTAL ${totalPrice.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}`;
     });
   }
 }
