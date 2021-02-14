@@ -74,8 +74,8 @@ html {
 }
 
 .item .item__image {
-  height: 200px;
-  width: auto;
+  max-height: 200px;
+  width: 10px fit-content;
 }
 
 .item .item__add {
