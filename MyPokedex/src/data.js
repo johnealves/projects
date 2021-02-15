@@ -7,7 +7,7 @@ const pokemons = [
       value: 6.9,
       measurementUnit: "kg"
     },
-    image: "https:\/\/cdn.bulbagarden.net/upload/7/76/Spr_5b_001.png",
+    image: "https:cdn.bulbagarden.net/upload/7/76/Spr_5b_001.png",
     moreInfo: "https:\/\/bulbapedia.bulbagarden.net/wiki/Charmander_(Pok%C3%A9mon)"
   },
   {
@@ -600,7 +600,7 @@ const pokemons = [
     name: "Growlithe",
     type: 'Fire',
     averageWeight: {
-        value: 155,
+        value: 19,
         measurementUnit: "kg"
     },
     image: "https:\/\/cdn.bulbagarden.net/upload/3/3f/Spr_5b_058.png",
@@ -610,7 +610,7 @@ const pokemons = [
     name: "Arcanine",
     type: 'Fire',
     averageWeight: {
-        value: 19,
+        value: 155,
         measurementUnit: "kg"
     },
     image: "https:\/\/cdn.bulbagarden.net/upload/c/c5/Spr_5b2_059.png",
