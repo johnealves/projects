@@ -6,12 +6,12 @@ class Pokemon extends Component {
     const { value, measurementUnit } = this.props.pokemons.averageWeight
     return (
       <div className='pokediv'>
+        <img src={this.props.pokemons.image} alt={"Imagem-do-Pokemon"}></img>
         <div className='pokeInfo'>
-          <p>Name: {this.props.pokemons.name}</p> 
+          <p>#{this.props.pokemons.id}    {this.props.pokemons.name}</p> 
           <p>Type: {this.props.pokemons.type}</p>
           <p>Average Weight: {value} {measurementUnit}</p>
         </div>
-        <img src={this.props.pokemons.image} ></img>
       </div>
     )
   }
